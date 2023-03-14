@@ -13,10 +13,10 @@ class Sockets
         {
 
             //recibimos la respuesta del front
-            socket.on('mensajeHaciaElFront',(data)=>
+            socket.on('mensajDesdeElFront',(data)=>
             {
                 console.log(data);
-                this.io.emit('mensajeDesdeElFront',data)
+                this.io.emit('mensajeHaciaElFront',data)
             })
 
         });

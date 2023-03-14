@@ -49,7 +49,7 @@
     <script>
 
         //Recibimos el socket emitido desde el back
-        const socket = io('https://react-sockets.herokuapp.com/');
+        const socket = io('http://localhost:8080/');
         const mensajes = document.querySelector('#mensajes');
         const formularioChat= document.querySelector('#formularioChat');
         
@@ -59,10 +59,10 @@
         (e)=>{
             e.preventDefault();
             nuevoMensaje = txtMensaje.value;
-            socket.emit('mensajeHaciaElFront',{texto:nuevoMensaje})
+            socket.emit('mensajeDesdeElFront',{texto:nuevoMensaje})
         }
         );
-        socket.on('mensajeDesdeElFront',(data)=>{
+        socket.on('mensajeHaciaElFront',(data)=>{
             mensajes.innerHTML += `<li>${data.texto}</li>`
         });
         
